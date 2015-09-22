@@ -1,0 +1,144 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}
+  {% parent %}
+
+{% endblock %}
+
+{% block content %}
+{% parent %}
+
+
+<ul class="three_columns">
+<fieldset>  
+<h2>question contents:</h2>
+<legend><h2>{{ Question.title }}</h2></legend>
+<div>
+<ul>
+	<li>{{Question.contents}}</li>
+</ul>
+<br>
+<hr>
+</div>
+
+	<div class="button">
+	
+		<button type="submit" onclick="window.location='/questions/{{Question.id}}/questionComment'">Add Comment</button>
+		<button type="submit" onclick="window.location='/questions/{{Question.id}}/questionEdit'">Edit Question</button>
+	<form action="/questions/{{Question.id}}?_method=DELETE" method="POST" id="delb">
+        <button type="submit">Delete Question</button>
+	</form>
+	<div>
+<ul class="three_columns">
+<fieldset id="com">  
+<legend><h2>Question Comments</h2></legend>
+<div>
+<ul>
+	{% for q_comment in Question.q_comment %}
+    <li{% if loop.first %}{% endif %}>
+     {{ q_comment.contents }}
+	 <div class="button">
+	
+		<button type="submit" onclick="window.location='/qcomments/{{q_comment.id}}/qcommentEdit'">Edit Comment</button>
+	<form action="/qcomments/{{q_comment.id}}?_method=DELETE" method="POST" id="delqc">
+        <button type="submit">Delete Comment</button>
+	</form>
+	</div>
+	<hr>
+    </li>
+    {% endfor %}
+</ul>
+</div>
+
+
+</fieldset>
+
+</ul>
+</div> 
+	
+	</div>
+<hr>
+
+
+
+
+<div>
+<ul class="three_columns">
+<fieldset id="com2">  
+<legend><h2>Answers</h2></legend>
+<div>
+<ul>
+	{% for answer in Question.answers %}
+    <li{% if loop.first %}{% endif %}>
+	{{ answer.contents }}</a>
+	<div class="button">
+	
+		<button type="submit" onclick="window.location='/answers/{{answer.id}}/answerComment'">Add Comment</button>
+		<button type="submit" onclick="window.location='/answers/{{answer.id}}/answerEdit'">Edit Answer</button>
+	<form action="/answers/{{answer.id}}?_method=DELETE" method="POST" id="delb">
+        <button type="submit">Delete Answer</button>
+	</form>
+	
+	<div>
+<ul id="com2">
+<fieldset>  
+<legend><h2>Answer Comment</h2></legend>
+	{% for a_comment in answer.a_comment %}
+    <li{% if loop.first %}{% endif %}>
+     {{ a_comment.contents }}
+	 <div class="button">
+	
+		<button type="submit" onclick="window.location='/acomments/{{a_comment.id}}/acommentEdit'">Edit Comment</button>
+	<form action="/acomments/{{a_comment.id}}?_method=DELETE" method="POST" id="delb">
+        <button type="submit">Delete Comment</button>
+	</form>
+	</div>
+	<hr>
+    </li>
+    {% endfor %}
+</ul>
+</div>
+	</div><hr>
+	  
+    </li>
+    {% endfor %}
+</ul>
+</div>
+
+
+</fieldset>
+
+<ul>
+<p>
+<form class="ask" action="/questions/{{Question.id}}/answers" method="post">
+<li> <strong> Answer: </strong><textarea cols="70"rows="5" name="contents" onFocus="if (value =='Answer'){value =''}" onBlur="if (value ==''){value='Answer'}">Answer</textarea>
+
+  <input type="submit" value="  POST YOUR ANSWER  ">
+ 
+</form>
+<p>&nbsp;  </p>
+
+</ul> 
+  
+</div>
+
+</fieldset>
+
+</ul> 
+</ul> 
+
+
+{% endblock %}
+
+{% block footer %}
+  {% parent %}
+
+{% endblock %}
+
+
+
+
+
+ 

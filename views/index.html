@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}
+  {% parent %}
+
+{% endblock %}
+
+{% block content %}
+{% parent %}
+
+<section class="section_one"> 
+	
+		<div class="wrapper">
+			
+			<article class="one">
+				<img src="/images/Forum.jpg" alt= "forum logo" height= "170" width="400" >			
+				</article>
+		
+		
+			<article class="two">
+			<h2> Forum - For professional and enthusiast programmers </h2> 
+			<p>At the Forum, you can submit your computer related questions and have the community answer them. Click on a question title to go ahead and answer it!
+			<br/><br/>
+			</article>
+		
+		</div>
+</section>
+
+
+<ul class="three_columns">
+<fieldset>  
+<legend><h2>Questions</h2></legend>
+<div>
+<ul>
+	{% for question in questions %}
+    <li{% if loop.first %}{% endif %}>
+    <a href="/questions/{{question.id}}">{{ question.title }}&nbsp;&nbsp;Asked at:{{ question.createTime|date('F jS \o\f Y \a\t G:i')}}</a>
+	</li>
+    {% endfor %}
+</ul>
+</div>
+</fieldset>
+
+</ul>
+
+{% endblock %}
+
+{% block footer %}
+  {% parent %}
+
+{% endblock %}

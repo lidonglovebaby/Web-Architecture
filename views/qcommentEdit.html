@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}
+  {% parent %}
+
+{% endblock %}
+
+{% block content %}
+{% parent %}
+<section class="section_two"> 
+
+			<article class="three">
+	
+<div class="wrapper">
+	
+	<p>Edit Your Question Comment</p>
+  	</div>
+	
+</article>
+
+<center><fieldset>  
+<article class="four">
+
+<div>
+
+<form class="ask" action="/qcomments/{{id}}?_method=PUT" method="post">
+<p> <strong> New Question Comment: </strong> </p>
+<input type="text" size="70" name="contents" value="input your new question comment" onFocus="if (value =='input your new question comment'){value =''}" onBlur="if (value ==''){value='input your new question comment'}"/></li>
+<br>
+  <input type="submit" value="SUBMIT">
+  <p>&nbsp;  </p>
+ 
+</form> 
+</div>
+</article>
+</fieldset></center>
+</body>
+  
+<p>&nbsp;  </p>
+<p>&nbsp;  </p>
+
+{% endblock %}
+
+{% block footer %}
+  {% parent %}
+
+{% endblock %}

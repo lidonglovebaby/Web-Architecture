@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}
+  {% parent %}
+
+{% endblock %}
+
+{% block content %}
+{% parent %}
+
+
+
+<section class="section_two"> 
+
+			<article class="three">
+	
+<div class="wrapper">
+	
+	<p>Add Your question Comment </p>
+  	</div>
+	
+</article>
+<center><fieldset>  
+<article class="four">
+
+<div>
+
+<form class="ask" action="/questions/{{id}}/qcomments" method="post">
+
+<br>
+<p> <strong> Question Comment: </strong> </p>
+<br>
+<div>
+<p>
+<textarea cols="100" name="contents" onFocus="if (value =='question comment'){value =''}" onBlur="if (value ==''){value='question comment'}">question comment</textarea>
+</p>
+<p> &nbsp;  </p>
+  <center>
+  <input type="submit" value="  ADD COMMENT  ">
+  </center>
+  <p> &nbsp;  </p>
+</div>
+
+  
+</form> 
+</div>
+</article>
+</fieldset></center>
+</body>
+  
+<p>&nbsp;  </p>
+<p>&nbsp;  </p>
+
+{% endblock %}
+
+{% block footer %}
+  {% parent %}
+
+{% endblock %}

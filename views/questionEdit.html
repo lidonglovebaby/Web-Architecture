@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}
+  {% parent %}
+
+{% endblock %}
+
+{% block content %}
+{% parent %}
+<section class="section_two"> 
+
+			<article class="three">
+	
+<div class="wrapper">
+	
+	<p>Edit Your Question</p>
+  	</div>
+	
+</article>
+
+<center><fieldset>  
+<article class="four">
+
+<div>
+
+<form class="ask" action="/questions/{{id}}?_method=PUT" method="post">
+<p> <strong> Question Title: </strong> </p>
+<input type="text" size="70" name="title" value="New question title" onFocus="if (value =='New question title'){value =''}" onBlur="if (value ==''){value='New question title'}"/></li>
+<br>
+<p> <strong> Question Explanation: </strong> </p>
+<textarea cols="70" rows="5" name="contents" onFocus="if (value =='New question content'){value =''}" onBlur="if (value ==''){value='New question content'}">New question content</textarea>
+<br>  
+<input type="submit" value="SUBMIT">
+  <p>&nbsp;  </p>
+</form> 
+</div>
+</article>
+</fieldset></center>
+</body>
+  
+<p>&nbsp;  </p>
+<p>&nbsp;  </p>
+
+{% endblock %}
+
+{% block footer %}
+  {% parent %}
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}
+  {% parent %}
+
+{% endblock %}
+
+{% block content %}
+{% parent %}
+
+<article> 
+
+<div class="wrapper">
+	<h5> About Us </h5>
+	<br>
+	<p> The Forum is a question-and-answer forum for professional and enthusiast programmers. You can submit a question to the forum for review by community peers. At The Forum, we advocate group learning and crowd-sourced knowledge.</p>
+</div>
+	
+</article>
+{% endblock %}
+
+{% block footer %}
+  {% parent %}
+
+{% endblock %}

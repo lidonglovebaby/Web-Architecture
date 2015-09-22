@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}
+  {% parent %}
+
+{% endblock %}
+
+{% block content %}
+{% parent %}
+<section class="section_two"> <!-- this section contains the two articles -->
+	<!-- again we are wrapping this section within the wrapper -->
+
+			<article class="three">
+	
+<div class="wrapper">
+	
+	<p>Edit your Answer Comment</p>
+  	</div>
+	
+</article>
+<center><fieldset>  
+<article class="four">
+
+<div>
+
+<form class="ask" action="/acomments/{{id}}?_method=PUT" method="post">
+<li> <strong>New Answer Comment: </strong> </li>
+<input type="text" size="70" name="contents" value="new answer comment" onFocus="if (value =='new answer comment'){value =''}" onBlur="if (value ==''){value='new answer comment'}"/></li>
+<br>
+  <input type="submit" value="SUBMIT">
+  <p>&nbsp;  </p>
+</ul> 
+</form> 
+</div>
+</article>
+</fieldset></center>
+</body>
+  
+<p>&nbsp;  </p>
+<p>&nbsp;  </p>
+
+{% endblock %}
+
+{% block footer %}
+  {% parent %}
+
+{% endblock %}

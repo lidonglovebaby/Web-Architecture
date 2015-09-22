@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block head %}
+  {% parent %}
+
+{% endblock %}
+
+{% block content %}
+{% parent %}
+<article class="three">
+	
+<div class="wrapper">
+	<h4> Have a Question? </h4>
+	<br>
+	<p>Please fill in the form to submit your question to the Allotment Community </p>
+  	</div>
+	
+</article>
+<center><fieldset>  
+<article class="four">
+
+<div>
+
+<form class="ask" action="/questions" method="post">
+<li> <strong> Question Title: </strong> </li>
+<input type="text" size="70" name="title" value="Question Topic" onFocus="if (value =='Question Topic'){value =''}"onblur="if (value ==''){value='Question Topic'}"/></li>
+<br>
+<li> <strong> Question Explanation: </strong> </li>
+<textarea cols="70" rows="5" name="contents" onFocus="if (value =='Question Explanation'){value =''}" onBlur="if (value ==''){value='Question Explanation'}">Question Explanation</textarea>
+  <input type="submit" value="SUBMIT">
+  <p>&nbsp;  </p>
+</ul> 
+</form> 
+</div>
+</article>
+</fieldset>
+</center>
+<p>&nbsp;  </p>
+<p>&nbsp;  </p>
+{% endblock %}
+
+
+
+{% block footer %}
+  {% parent %}
+{% endblock %}
+
+
+
